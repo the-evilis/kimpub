@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIM — Корейский ресторан-pub | Бишкек</title>
+    <meta name="description" content="Kimpab — корейский ресторан и pub в Бишкеке. Аутентичная корейская кухня: кимпаб, рамен, BBQ. Круглосуточно. пр. Юнусалиева 134. +996 553 608 608">
+    <meta name="keywords" content="kimpab, кимпаб, корейский ресторан бишкек, корейская кухня, korean food bishkek, кимпаб бишкек, korean pub bishkek">
+    
+    <meta property="og:title" content="KIM — Корейский ресторан-pub в Бишкеке">
+    <meta property="og:description" content="Корейская кухня, кимпаб, рамен и BBQ. Работаем 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kimpub.kg">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=1200">
+    <meta property="og:locale" content="ru_RU">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --red: #c0392b;
+            --red-dark: #922b21;
+            --black: #1a1a1a;
+            --charcoal: #2c2c2c;
+            --warm-gray: #f5f3f0;
+            --cream: #faf8f5;
+            --gold: #d4a853;
+            --gold-light: #f0d48a;
+            --dark-text: #222;
+            --muted: #777;
+            --white: #fff;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Noto Serif KR', serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        nav.scrolled {
+            background: rgba(26,26,26,0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 24px;
+        }
+        .nav-logo {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .nav-logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: var(--black);
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=1600&q=80') center/cover;
+            opacity: 0.35;
+            transform: scale(1.1);
+            will-change: transform;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(26,26,26,0.3) 0%, rgba(26,26,26,0.9) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(212,168,83,0.15);
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .hero-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .hero-rating .stars { color: var(--gold); }
+        .hero h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: 6px;
+            line-height: 1.1;
+        }
+        .hero h1 .kor {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            display: block;
+            color: var(--gold);
+            font-weight: 400;
+            margin-top: 4px;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 20px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .hero-24 {
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .hero-address {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 28px;
+        }
+        .hero-address a { color: var(--gold); text-decoration: none; }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--red);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(192,57,43,0.3);
+        }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--black);
+        }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+        .hero-scroll::after {
+            content: '↓';
+            display: block; text-align: center;
+            font-size: 1.2rem; margin-top: 4px;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        
+        /* SECTIONS COMMON */
+        section { padding: 100px 0; }
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            color: var(--black);
+            line-height: 1.3;
+        }
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header .section-subtitle { margin: 0 auto; }
+        
+        /* ABOUT */
+        .about { background: white; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .about-card {
+            padding: 36px 28px;
+            background: var(--warm-gray);
+            border-radius: 14px;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .about-icon { font-size: 2.8rem; margin-bottom: 14px; }
+        .about-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        .about-card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .about-quote {
+            margin-top: 12px;
+            font-style: italic;
+            color: var(--red);
+            font-size: 0.82rem;
+            padding: 10px;
+            background: rgba(192,57,43,0.06);
+            border-radius: 8px;
+        }
+        
+        /* COUNTERS */
+        .counters {
+            background: linear-gradient(135deg, var(--black), var(--charcoal));
+            color: white;
+            padding: 80px 0;
+        }
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .counter-item .counter-number {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .counter-item .counter-label {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* GALLERY */
+        .gallery { background: var(--cream); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item .gallery-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
+        
+        /* MENU */
+        .menu-section { background: white; }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .menu-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--warm-gray);
+            transition: all 0.4s ease;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .menu-card img {
+            width: 100%; height: 170px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .menu-card:hover img { transform: scale(1.1); }
+        .menu-info { padding: 16px 18px 20px; }
+        .menu-info h4 {
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+        .menu-info p {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+        .menu-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--red);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* TOUCHES */
+        .touches {
+            background: linear-gradient(135deg, var(--warm-gray), #e8e3dc);
+        }
+        .touches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .touch-item {
+            text-align: center;
+            padding: 32px 22px;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+        .touch-item:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+        .touch-icon { font-size: 2.2rem; margin-bottom: 10px; }
+        .touch-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--black);
+        }
+        .touch-item p { font-size: 0.83rem; color: var(--muted); }
+        
+        /* TIPS */
+        .tips { background: white; }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .tip-card {
+            padding: 24px 18px;
+            background: var(--warm-gray);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .tip-card:hover {
+            border-color: var(--gold);
+            background: white;
+            transform: translateY(-3px);
+        }
+        .tip-icon { font-size: 1.8rem; margin-bottom: 6px; }
+        .tip-card h4 {
+            font-size: 0.9rem;
+            color: var(--black);
+        }
+        
+        /* REVIEWS */
+        .reviews { background: var(--warm-gray); }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .review-card {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+        .review-card .stars { color: var(--gold); font-size: 1rem; margin-bottom: 8px; }
+        .review-card blockquote {
+            font-style: italic;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+        .review-card .author {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--red);
+        }
+        
+        /* MAP */
+        .map-section { padding: 60px 0; background: var(--cream); }
+        .map-container {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .map-container iframe {
+            width: 100%; height: 380px;
+            border: 0; display: block;
+        }
+        
+        /* BOOKING */
+        .booking {
+            background: linear-gradient(135deg, var(--black), var(--charcoal));
+            color: white;
+        }
+        .booking .section-title { color: white; }
+        .booking .section-subtitle { color: rgba(255,255,255,0.7); }
+        .booking-form { max-width: 520px; margin: 0 auto; }
+        .form-group { margin-bottom: 14px; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-group input::placeholder { color: rgba(255,255,255,0.5); }
+        .form-group select option { color: var(--black); background: white; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .btn-full { width: 100%; justify-content: center; }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: var(--gold);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand h3 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 6px;
+        }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-brand p { font-size: 0.83rem; line-height: 1.7; }
+        .footer-hours h4, .footer-contacts h4, .footer-social h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .footer-hours p { font-size: 0.83rem; line-height: 2; }
+        .footer-contacts p { font-size: 0.83rem; line-height: 2; }
+        .footer-contacts a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-contacts a:hover { color: var(--gold); }
+        .footer-social .social-links { display: flex; gap: 10px; }
+        .footer-social .social-links a {
+            display: flex;
+            align-items: center; justify-content: center;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .footer-social .social-links a:hover { background: var(--gold); color: var(--black); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.78rem;
+        }
+        .footer-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        /* MOBILE BAR */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 999;
+            background: var(--black);
+            padding: 10px 14px;
+            justify-content: space-between;
+            gap: 8px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        }
+        .mobile-bar .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 12px 14px;
+            font-size: 0.78rem;
+        }
+        .mobile-bar .btn-outline { border-color: rgba(255,255,255,0.25); }
+        
+        .share-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 998;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212,168,83,0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center; justify-content: center;
+        }
+        .share-btn:hover { transform: scale(1.1); }
+        
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.7s ease;
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.7s ease;
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.7s ease;
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+        
+        @media (max-width: 1024px) {
+            .about-grid { grid-template-columns: repeat(2, 1fr); }
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(26,26,26,0.98);
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            
+            .hero h1 { font-size: 3rem; }
+            .hero h1 .kor { font-size: 1.4rem; }
+            .hero-subtitle { font-size: 1rem; }
+            
+            .section-title { font-size: 2rem; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .counters-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.tall { grid-row: auto; }
+            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+            .touches-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .mobile-bar { display: flex; }
+            .share-btn { bottom: 80px; right: 14px; width: 42px; height: 42px; }
+            section { padding: 60px 0; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.4rem; }
+            .menu-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .form-row { grid-template-columns: 1fr; }
+            .menu-card img { height: 120px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="nav-logo">K<span>IM</span></div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#booking">Бронь</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="hero">
+    <div class="hero-bg" id="parallaxBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Работаем 24/7 · Круглосуточно
+        </div>
+        <div class="hero-rating">
+            <span class="stars">★★★★☆</span>
+            <span>4.3 <span style="color:rgba(255,255,255,0.4)">·</span> 384 отзыва</span>
+        </div>
+        <h1>KIMPAB<span class="kor">김밥</span></h1>
+        <p class="hero-subtitle">Корейский ресторан-pub в Бишкеке. Аутентичная кухня, кимпаб, рамен, BBQ — 24 часа в сутки</p>
+        <div class="hero-24">🕐 Круглосуточно · без выходных</div>
+        <p class="hero-address">📍 <a href="https://maps.app.goo.gl/oWqCPnJZgHwBsfsz6" target="_blank">пр. Юнусалиева 134, Бишкек</a></p>
+        <div class="hero-buttons">
+            <a href="#booking" class="btn btn-primary">📅 Забронировать столик</a>
+            <a href="https://maps.app.goo.gl/oWqCPnJZgHwBsfsz6" target="_blank" class="btn btn-outline">🗺 Получить маршрут</a>
+            <a href="https://www.instagram.com/kimpubkg" target="_blank" class="btn btn-outline">📷 Instagram</a>
+        </div>
+    </div>
+    <div class="hero-scroll">Листайте вниз</div>
+</section>
+
+<section class="counters">
+    <div class="container">
+        <div class="counters-grid">
+            <div class="counter-item">
+                <div class="counter-number" data-target="4.3">0</div>
+                <div class="counter-label">Рейтинг ★</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="384">0</div>
+                <div class="counter-label">Отзывов</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="24">0</div>
+                <div class="counter-label">Часа в сутки</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="7">0</div>
+                <div class="counter-label">Дней в неделю</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Почему к нам возвращаются</div>
+            <h2 class="section-title">Корейская душа Бишкека</h2>
+            <p class="section-subtitle">KIMPAB — это не просто корейский ресторан. Это место, где встречаются традиции Кореи и ритмы Бишкека. Аутентичные блюда, тёплая атмосфера и настоящий корейский радушный сервис.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card reveal" style="transition-delay:0.1s">
+                <div class="about-icon">🍚</div>
+                <h3>Кимпаб — как в Сеуле</h3>
+                <p>Наши кимпаб роллы готовятся по традиционным рецептам. Рис, нори, свежие овощи и мясо — идеальный баланс вкуса.</p>
+                <div class="about-quote">"Вкусные кимпаб — порции большие, качество отличное"</div>
+            </div>
+            <div class="about-card reveal" style="transition-delay:0.2s">
+                <div class="about-icon">🍜</div>
+                <h3>Рамен Ассорти</h3>
+                <p>Наваристый бульон, лапша ручной работы, топпинги. Согревающий рамен, который хочется заказывать снова.</p>
+                <div class="about-quote">"Рамен хороший, порции намного больше, чем ожидаешь"</div>
+            </div>
+            <div class="about-card reveal" style="transition-delay:0.3s">
+                <div class="about-icon">🥩</div>
+                <h3>Корейское BBQ</h3>
+                <p>Мясо на гриле, маринованное по традиционным рецептам. Подаётся с соусами и свежими овощами.</p>
+                <div class="about-quote">"Good quality food. Expensive but the chef is a great person"</div>
+            </div>
+            <div class="about-card reveal" style="transition-delay:0.4s">
+                <div class="about-icon">🕐</div>
+                <h3>Круглосуточно 24/7</h3>
+                <p>Единственный корейский ресторан в Бишкеке, который работает без перерыва. Хоть в 3 часа ночи — мы открыты.</p>
+                <div class="about-quote">"Спасение, когда все закрыто, а есть хочется"</div>
+            </div>
+            <div class="about-card reveal" style="transition-delay:0.5s">
+                <div class="about-icon">♟️</div>
+                <h3>Шеф-повар — шахматист</h3>
+                <p>Наш шеф не только готовит, но и может сыграть партию в шахматы после ужина. Уникальная фишка места.</p>
+                <div class="about-quote">"Great chef and a chess player — такого нигде не найдёшь"</div>
+            </div>
+            <div class="about-card reveal" style="transition-delay:0.6s">
+                <div class="about-icon">🎵</div>
+                <h3>Атмосфера Pub</h3>
+                <p>Уютный интерьер, приятная музыка, хорошая компания. Место для встреч с друзьями и душевных разговоров.</p>
+                <div class="about-quote">"Good atmosphere, nice place for gatherings"</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Фотогалерея</div>
+            <h2 class="section-title">Атмосфера KIMPAB</h2>
+            <p class="section-subtitle">От традиционного кимпаба до уютных вечеров за BBQ</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item tall reveal">
+                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=600&q=85" alt="Корейский BBQ" loading="lazy">
+                <div class="gallery-label">Корейское BBQ</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.1s">
+                <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=600&q=85" alt="Кимпаб" loading="lazy">
+                <div class="gallery-label">Кимпаб</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.2s">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=85" alt="Интерьер" loading="lazy">
+                <div class="gallery-label">Интерьер</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.3s">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Корейские блюда" loading="lazy">
+                <div class="gallery-label">Корейские блюда</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.1s">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=85" alt="Рамен" loading="lazy">
+                <div class="gallery-label">Рамен Ассорти</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.4s">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Еда" loading="lazy">
+                <div class="gallery-label">Корейские закуски</div>
+            </div>
+            <div class="gallery-item reveal" style="transition-delay:0.2s">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=85" alt="Интерьер ресторана" loading="lazy">
+                <div class="gallery-label">Атмосфера Pub</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu-section" id="menu">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Меню</div>
+            <h2 class="section-title">Что попробовать в KIMPAB</h2>
+            <p class="section-subtitle">От классического кимпаба до сытного BBQ — всё как в Корее</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card reveal" style="transition-delay:0.1s">
+                <span class="menu-badge">Хит</span>
+                <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&q=80" alt="Кимпаб" loading="lazy">
+                <div class="menu-info">
+                    <h4>Кимпаб классический</h4>
+                    <p>Рис, нори, овощи, говядина</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.2s">
+                <span class="menu-badge">Хит</span>
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400&q=80" alt="Рамен" loading="lazy">
+                <div class="menu-info">
+                    <h4>Рамен Ассорти</h4>
+                    <p>Наваристый бульон, лапша, яйцо, мясо</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.3s">
+                <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=400&q=80" alt="BBQ" loading="lazy">
+                <div class="menu-info">
+                    <h4>Корейское BBQ</h4>
+                    <p>Мясо на гриле с соусами</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.4s">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt="Корейские блюда" loading="lazy">
+                <div class="menu-info">
+                    <h4>Салат корейский</h4>
+                    <p>Свежие овощи с фирменной заправкой</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.5s">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80" alt="Закуски" loading="lazy">
+                <div class="menu-info">
+                    <h4>Корейские закуски</h4>
+                    <p>Кимчи, ттокпокки, эггимпа</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.6s">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80" alt="Напитки" loading="lazy">
+                <div class="menu-info">
+                    <h4>Корейские напитки</h4>
+                    <p>Соджу, макколли, традиционные чаи</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.7s">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" alt="Курица" loading="lazy">
+                <div class="menu-info">
+                    <h4>Курица по-корейски</h4>
+                    <p>В соусе яннём</p>
+                </div>
+            </div>
+            <div class="menu-card reveal" style="transition-delay:0.8s">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" alt="Pub" loading="lazy">
+                <div class="menu-info">
+                    <h4>Сет Pub</h4>
+                    <p>Закуски + напиток — идеально для компании</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="touches">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Особые штрихи</div>
+            <h2 class="section-title">Детали, которые выделяют нас</h2>
+        </div>
+        <div class="touches-grid">
+            <div class="touch-item reveal" style="transition-delay:0.1s">
+                <div class="touch-icon">🕐</div>
+                <h4>Круглосуточно 24/7</h4>
+                <p>Единственный корейский ресторан в Бишкеке, который работает без перерыва все дни недели</p>
+            </div>
+            <div class="touch-item reveal" style="transition-delay:0.2s">
+                <div class="touch-icon">♟️</div>
+                <h4>Шеф — шахматист</h4>
+                <p>Наш шеф-повар с радостью сыграет с вами партию в шахматы после ужина. Уникальная атмосфера</p>
+            </div>
+            <div class="touch-item reveal" style="transition-delay:0.3s">
+                <div class="touch-icon">🥬</div>
+                <h4>Домашние кимчи и соусы</h4>
+                <p>Все ферментированные закуски и соусы готовятся по традиционным рецептам</p>
+            </div>
+            <div class="touch-item reveal" style="transition-delay:0.4s">
+                <div class="touch-icon">🎶</div>
+                <h4>K-pop и не только</h4>
+                <p>Плейлист от K-pop до корейского джаза — атмосфера полного погружения</p>
+            </div>
+            <div class="touch-item reveal" style="transition-delay:0.5s">
+                <div class="touch-icon">📦</div>
+                <h4>Доставка</h4>
+                <p>Кимпаб, рамен и BBQ с доставкой на дом. Заказывайте через сайт партнёров</p>
+            </div>
+            <div class="touch-item reveal" style="transition-delay:0.6s">
+                <div class="touch-icon">🍻</div>
+                <h4>Корейский Pub</h4>
+                <p>Соджу, пиво, закуски — идеальный формат для встречи с друзьями</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tips">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Советы гостям</div>
+            <h2 class="section-title">Как получить максимум</h2>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-card reveal" style="transition-delay:0.1s">
+                <div class="tip-icon">🍚</div>
+                <h4>Начинайте с кимпаба</h4>
+                <p>Классический кимпаб — то, за чем возвращаются</p>
+            </div>
+            <div class="tip-card reveal" style="transition-delay:0.2s">
+                <div class="tip-icon">🍜</div>
+                <h4>Рамен в 3 ночи — норм</h4>
+                <p>Мы работаем 24/7. Рамен ночью — наша фишка</p>
+            </div>
+            <div class="tip-card reveal" style="transition-delay:0.3s">
+                <div class="tip-icon">♟️</div>
+                <h4>Вызовите шефа на партию</h4>
+                <p>Шахматы после еды — бесплатно и весело</p>
+            </div>
+            <div class="tip-card reveal" style="transition-delay:0.4s">
+                <div class="tip-icon">🥩</div>
+                <h4>BBQ на компанию</h4>
+                <p>Заказывайте мясо на гриле — порции большие</p>
+            </div>
+            <div class="tip-card reveal" style="transition-delay:0.5s">
+                <div class="tip-icon">🍻</div>
+                <h4>Соджу + закуски</h4>
+                <p>Классическое корейское сочетание</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="reviews">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Отзывы гостей</div>
+            <h2 class="section-title">Что говорят о нас</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card reveal" style="transition-delay:0.1s">
+                <div class="stars">★★★★★</div>
+                <blockquote>"Good quality food. Expensive but the chef is a great person and he is a chess player."</blockquote>
+                <div class="author">— Rawezh_f_ Kurde, Google Local Guide</div>
+            </div>
+            <div class="review-card reveal" style="transition-delay:0.2s">
+                <div class="stars">★★★★☆</div>
+                <blockquote>"Вкусные кимпаб и корейские блюда. Порции намного больше, чем ожидаешь. Хорошее соотношение цены и качества."</blockquote>
+                <div class="author">— Айша, гость ресторана</div>
+            </div>
+            <div class="review-card reveal" style="transition-delay:0.3s">
+                <div class="stars">★★★★☆</div>
+                <blockquote>"Good price vs the quality. Nice atmosphere, good for gatherings with friends."</blockquote>
+                <div class="author">— Maxat Usupbaeva, Google Local Guide</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="booking" id="booking">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Бронирование</div>
+            <h2 class="section-title">Забронировать столик</h2>
+            <p class="section-subtitle">Оставьте заявку — мы перезвоним для подтверждения</p>
+        </div>
+        <form class="booking-form reveal" id="bookingForm" onsubmit="return handleBooking(event)">
+            <div class="form-group">
+                <input type="text" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Номер телефона" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <input type="time" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" placeholder="Количество гостей" min="1" max="20" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">📅 Отправить заявку</button>
+            <div class="form-success" id="formSuccess">
+                ✅ Спасибо! Мы перезвоним для подтверждения брони.
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="map-section" id="contacts">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Как нас найти</div>
+            <h2 class="section-title">Мы на карте</h2>
+        </div>
+        <div class="map-container reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2925.123456789!2d74.623168!3d42.84164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zNDLCsDUwJzI5LjkiTiA3NMKwMzcnMjMuNCJF!5e0!3m2!1sru!2skg!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer id="contacts">
+    <div class="container">
+        <div class="footer-buttons">
+            <a href="#booking" class="btn btn-primary">📅 Забронировать столик</a>
+            <a href="https://maps.app.goo.gl/oWqCPnJZgHwBsfsz6" target="_blank" class="btn btn-outline">🗺 Получить маршрут</a>
+            <a href="https://www.instagram.com/kimpubkg" target="_blank" class="btn btn-outline">📷 Instagram</a>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>K<span>IM</span>PAB</h3>
+                <p>Корейский ресторан-pub в Бишкеке. Аутентичная корейская кухня, кимпаб, рамен и BBQ. Работаем круглосуточно без выходных.</p>
+            </div>
+            <div class="footer-hours">
+                <h4>Часы работы</h4>
+                <p>🕐 Круглосуточно<br>24/7 · Без выходных</p>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <p><a href="tel:+996553608608">+996 553 608 608</a><br>
+                   <a href="https://maps.app.goo.gl/oWqCPnJZgHwBsfsz6" target="_blank">пр. Юнусалиева, 134<br>Бишкек, Кыргызстан</a></p>
+            </div>
+            <div class="footer-social">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/kimpubkg" target="_blank" aria-label="Instagram">📷</a>
+                    <a href="https://go.2gis.com/BMhbu" target="_blank" aria-label="2GIS">📍</a>
+                    <a href="https://maps.app.goo.gl/oWqCPnJZgHwBsfsz6" target="_blank" aria-label="Google Maps">🗺</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024–2026 KIMPAB — Корейский ресторан-pub. Бишкек.
+        </div>
+    </div>
+</footer>
+
+<div class="mobile-bar">
+    <a href="tel:+996553608608" class="btn btn-outline">📞 Позвонить</a>
+    <a href="#booking" class="btn btn-primary">📅 Бронь</a>
+</div>
+
+<button class="share-btn" onclick="shareSite()" aria-label="Поделиться">📤</button>
+
+<script>
+window.addEventListener('scroll', function() {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    const bg = document.getElementById('parallaxBg');
+    const scrollY = window.scrollY;
+    if (scrollY < window.innerHeight) {
+        bg.style.transform = 'scale(1.1) translateY(' + (scrollY * 0.15) + 'px)';
+    }
+});
+
+function animateCounters() {
+    document.querySelectorAll('.counter-number').forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
+        const isDecimal = target % 1 !== 0;
+        const duration = 2000;
+        const start = performance.now();
+        function update(t) {
+            const elapsed = t - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = target * eased;
+            counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+            if (progress < 1) requestAnimationFrame(update);
+            else {
+                counter.textContent = isDecimal ? target.toFixed(1) : target;
+                if (!isDecimal) counter.textContent += '+';
+            }
+        }
+        requestAnimationFrame(update);
+    });
+}
+
+function revealOnScroll() {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('visible');
+    });
+}
+
+function handleBooking(e) {
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('bookingForm').reset();
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 4000);
+    return false;
+}
+
+function shareSite() {
+    if (navigator.share) {
+        navigator.share({ title: 'KIMPAB — Корейский ресторан-pub в Бишкеке', text: 'Кимпаб, рамен, BBQ 24/7! 🍚', url: window.location.href }).catch(() => {});
+    } else {
+        const d = document.createElement('textarea');
+        d.value = window.location.href; document.body.appendChild(d); d.select(); document.execCommand('copy'); document.body.removeChild(d);
+        alert('Ссылка скопирована в буфер обмена!');
+    }
+}
+
+document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+
+document.addEventListener('DOMContentLoaded', function() {
+    revealOnScroll();
+    const cs = document.querySelector('.counters');
+    if (cs.getBoundingClientRect().top < window.innerHeight) animateCounters();
+});
+
+window.addEventListener('scroll', function() {
+    revealOnScroll();
+    const cs = document.querySelector('.counters');
+    if (cs) {
+        const r = cs.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+            let anyZero = false;
+            cs.querySelectorAll('.counter-number').forEach(n => { if (n.textContent === '0' || n.textContent === '0.0') anyZero = true; });
+            if (anyZero) animateCounters();
+        }
+    }
+});
+</script>
+
+</body>
+</html>`;
+
+console.log("KIMPAB HTML generated");
+console.log("Length:", html.length, "chars");
